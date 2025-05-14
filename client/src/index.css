@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 198 100% 29%; /* #006794 */
+  --primary-foreground: 211 100% 99%;
+  --secondary: 191 100% 48%; /* #00C6F7 */
+  --secondary-foreground: 220 9% 16%;
+  --accent: 240 4.8% 97%; /* #F8F8F8 */
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 224 71% 4%;
+  --foreground: 213 31% 91%;
+  --muted: 223 47% 11%;
+  --muted-foreground: 215 20% 65%;
+  --popover: 224 71% 4%;
+  --popover-foreground: 213 31% 91%;
+  --card: 224 71% 4%;
+  --card-foreground: 213 31% 91%;
+  --border: 216 34% 17%;
+  --input: 216 34% 17%;
+  --primary: 198 80% 40%; /* Lighter blue for dark mode */
+  --primary-foreground: 210 40% 98%;
+  --secondary: 199 70% 57%; /* Adjusted for dark mode */
+  --secondary-foreground: 210 40% 98%;
+  --accent: 216 34% 17%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 216 34% 17%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  h1 {
+    @apply text-xl font-bold;
+  }
+
+  h2 {
+    @apply text-lg font-bold;
+  }
+
+  h3 {
+    @apply text-base font-bold;
+  }
+}
+
+@layer components {
+  .property-type-button {
+    @apply bg-accent text-foreground py-2 px-3 rounded-md text-sm font-medium h-11 transition-colors duration-200;
+  }
+  
+  .property-type-button.active {
+    @apply bg-primary text-white;
+  }
+
+  .form-container {
+    @apply bg-card p-4 sm:p-6 rounded-lg shadow-sm;
+  }
+
+  .currency-input {
+    @apply relative;
+  }
+  
+  .currency-input input {
+    @apply pl-7;
+  }
+  
+  .currency-input::before {
+    content: "$";
+    @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground;
+  }
+}
